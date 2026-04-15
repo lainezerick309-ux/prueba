@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>NexVertex</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <h1 class="logo">NEXVERTEX</h1>
+</header>
+
+<section class="movies">
+
+  <div class="movie" onclick="goToDetail('supermario.png','Super Mario Galaxy')" tabindex="0">
+    <img src="supermario.png" alt="Super Mario Galaxy">
+    <p>Super Mario Galaxy</p>
+  </div>
+
+<div class="movie" onclick="goToDetail('proyecto.jpg','Proyecto Salvación')">
+  <img src="proyecto.jpg" alt="SPIDERMAN">
+  <p>Proyecto Salvación</p>
+</div>
+
+  <div class="movie" onclick="goToDetail('batman.jpg','BATMAN')" tabindex="0">
+    <img src="batman.jpg" alt="BATMAN">
+    <p>BATMAN</p>
+  </div>
+
+</section>
+
+<script>
+function goToDetail(img, title) {
+  localStorage.setItem("movieImg", img);
+  localStorage.setItem("movieTitle", title);
+  window.location.href = "detalle.html";
+}
+</script>
+
+</body>
+</html>

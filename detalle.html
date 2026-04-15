@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>NexVertex</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<div class="hero">
+
+  <iframe 
+    id="trailer"
+    class="bg-video"
+    src=""
+    frameborder="0"
+    allow="autoplay; fullscreen"
+    allowfullscreen>
+  </iframe>
+
+  <iframe 
+    id="iframe2"
+    class="player"
+    src=""
+    frameborder="0"
+    allowfullscreen
+    sandbox="allow-same-origin allow-scripts">
+  </iframe>
+
+  <div class="overlay">
+    <h1 id="title"></h1>
+
+    <div class="info">
+      <span>⭐ 8.3</span>
+      <span id="year"></span>
+      <span id="genre"></span>
+    </div>
+
+    <p class="sinopsis" id="sinopsis"></p>
+
+    <div class="buttons">
+      <button class="play" onclick="playVideo()">
+        <i class="fa-solid fa-play"></i> Play
+      </button>
+
+      <button class="icon">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+
+      <button class="icon">
+        <i class="fa-solid fa-download"></i>
+      </button>
+
+      <button class="icon" onclick="playTrailerSound()">
+  <i class="fa-solid fa-volume-high"></i>
+</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="actors">
+  <h2>Actors</h2>
+  <div class="actor-list">
+    <div class="actor">Actor 1</div>
+    <div class="actor">Actor 2</div>
+    <div class="actor">Actor 3</div>
+    <div class="actor">Actor 4</div>
+  </div>
+</div>
+
+<script>
+const title = localStorage.getItem("movieTitle");
+document.getElementById("title").innerText = title;
+
+let trailerURL = "";
+let sinopsis = "";
+let year = "";
+let genre = "";
+let videoReal = "";
+
+if (title === "BATMAN") {
+  trailerURL = "https://www.youtube.com/embed/mqqft2x_Aa4?autoplay=1&mute=1&controls=0&loop=1&playlist=mqqft2x_Aa4";
+  sinopsis = "Batman explora la corrupción existente en la ciudad de Gotham y el vínculo de esta con su propia familia.";
+  year = "2022";
+  genre = "Action / Crime";
+  videoReal = "https://vimeos.net/embed-z44va8djlfyu.html";
+}
+
+else if (title === "Super Mario Galaxy") {
+  trailerURL = "https://www.youtube.com/embed/ipzEY7c7it8?autoplay=1&mute=1&controls=0&loop=1&playlist=ipzEY7c7it8";
+  sinopsis = "Super Mario Galaxy: la película es una película de acción, aventura y comedia animada por ordenador basada en la franquicia de videojuegos Mario de Nintendo";
+  year = "2026";
+  genre = "Infantil / Animada";
+  videoReal = "https://drive.google.com/file/d/1otVonrrZRxlv6Kz2hFppE8K5pw7FTAHb/preview";
+}
+
+else if (title === "Proyecto Salvación") {
+  trailerURL = "https://www.youtube.com/embed/jz6JB0LCNRs?autoplay=1&mute=1&controls=0&loop=1&playlist=jz6JB0LCNRs";
+  sinopsis = "Project Hail Mary es una película de aventuras de ciencia ficción estadounidense producida y dirigida por Phil Lord y Christopher Miller a partir de un guion de Drew Goddard, adaptado de la novela homónima de Andy Weir de 2021";
+  year = "2026";
+  genre = "Acción / Drama";
+  videoReal = "https://drive.google.com/file/d/1dgNMrCfHIKP-MVjpE0gv_hXDHuQhKTWx/preview";
+}
+
+document.getElementById("trailer").src = trailerURL;
+document.getElementById("sinopsis").innerText = sinopsis;
+document.getElementById("year").innerText = year;
+document.getElementById("genre").innerText = genre;
+
+function playVideo() {
+  const iframe = document.getElementById("iframe2");
+  iframe.src = videoReal;
+  iframe.style.display = "block";
+  document.getElementById("trailer").style.display = "none";
+}
+
+function playTrailerSound() {
+  const trailer = document.getElementById("trailer");
+  trailer.src = trailer.src.replace("mute=1", "mute=0") + "&autoplay=1";
+}
+</script>
+
+</body>
+</html>
