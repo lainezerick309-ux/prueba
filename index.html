@@ -4,53 +4,99 @@
   <meta charset="UTF-8">
   <title>NexVertex</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-<header>
+<header class="navbar">
   <h1 class="logo">NEXVERTEX</h1>
+
+  <div class="search-box">
+    <i class="fa fa-search"></i>
+    <input type="text" id="search" placeholder="Buscar película...">
+  </div>
 </header>
 
-<section class="movies">
+<section class="category">
+  <h2>🔥 Estrenos</h2>
+  <div class="movies">
 
-  <div class="movie" onclick="goToDetail('supermario.png','Super Mario Galaxy')" tabindex="0">
-    <img src="supermario.png" alt="Super Mario Galaxy">
-    <p>Super Mario Galaxy</p>
-  </div>
+    <div class="movie" onclick="goToDetail('supermario.png','Super Mario Galaxy')">
+      <img src="supermario.png">
+      <p>Super Mario Galaxy</p>
+    </div>
 
-<div class="movie" onclick="goToDetail('proyecto.jpg','Proyecto Salvación')">
-  <img src="proyecto.jpg" alt="SPIDERMAN">
-  <p>Proyecto Salvación</p>
+    <div class="movie" onclick="goToDetail('proyecto.jpg','Proyecto Salvación')">
+      <img src="proyecto.jpg">
+      <p>Proyecto Salvación</p>
+    </div>
+
+    <div class="movie" onclick="goToDetail('avatar.jpg','Avatar: Aang, El último Maestro Aire')">
+  <img src="avatar.jpg">
+  <p>Avatar: Aang, El último Maestro Aire</p>
 </div>
 
-<div class="movie" onclick="goToDetail('antesdeti.jpg','Yo Antes de Ti')" tabindex="0">
-    <img src="antesdeti.jpg" alt="Yo Antes De Ti">
-    <p>Yo Antes De Ti</p>
+
   </div>
+</section>
 
-<div class="movie" onclick="goToDetail('inter.jpg','interestelar')" tabindex="0">
-    <img src="inter.jpg" alt="interestelar">
-    <p>interestelar</p>
+<section class="category">
+  <h2>💥 Acción</h2>
+  <div class="movies">
+
+    <div class="movie" onclick="goToDetail('batman.jpg','BATMAN')">
+      <img src="batman.jpg">
+      <p>BATMAN</p>
+    </div>
+
   </div>
+</section>
 
-<div class="movie" onclick="goToDetail('lalaland.jpg','LaLaLand:ciudad de sueños')" tabindex="0">
-    <img src="lalaland.jpg" alt="interestelar">
-    <p>LaLaLand: ciudad de sueños</p>
+<section class="category">
+  <h2>😱 Terror</h2>
+  <div class="movies">
+
+    <div class="movie" onclick="goToDetail('scream7.jpg','Scream 7')">
+      <img src="scream7.jpg">
+      <p>Scream 7</p>
+    </div>
+
   </div>
+</section>
 
 
+<section class="category">
+  <h2>❤️ Romance</h2>
+  <div class="movies">
 
-  <div class="movie" onclick="goToDetail('ventana.jpg','A Traves De Mi Ventana')" tabindex="0">
-    <img src="ventana.jpg" alt="Yo Antes De Ti">
-    <p>A Traves De Mi Ventana</p>
+    <div class="movie" onclick="goToDetail('antesdeti.jpg','Yo Antes de Ti')">
+      <img src="antesdeti.jpg">
+      <p>Yo Antes de Ti</p>
+    </div>
+
+    <div class="movie" onclick="goToDetail('ventana.jpg','A Traves De Mi Ventana')">
+      <img src="ventana.jpg">
+      <p>A Traves De Mi Ventana</p>
+    </div>
+
   </div>
+</section>
 
+<section class="category">
+  <h2>🚀 Ciencia Ficción</h2>
+  <div class="movies">
 
-  <div class="movie" onclick="goToDetail('batman.jpg','BATMAN')" tabindex="0">
-    <img src="batman.jpg" alt="BATMAN">
-    <p>BATMAN</p>
+    <div class="movie" onclick="goToDetail('inter.jpg','interestelar')">
+      <img src="inter.jpg">
+      <p>Interestelar</p>
+    </div>
+
+    <div class="movie" onclick="goToDetail('lalaland.jpg','LaLaLand:ciudad de sueños')">
+      <img src="lalaland.jpg">
+      <p>LaLaLand: ciudad de sueños</p>
+    </div>
+
   </div>
-
 </section>
 
 <script>
@@ -59,6 +105,18 @@ function goToDetail(img, title) {
   localStorage.setItem("movieTitle", title);
   window.location.href = "detalle.html";
 }
+
+const search = document.getElementById("search");
+
+search.addEventListener("keyup", function() {
+  let filter = search.value.toLowerCase();
+  let movies = document.querySelectorAll(".movie");
+
+  movies.forEach(movie => {
+    let text = movie.innerText.toLowerCase();
+    movie.style.display = text.includes(filter) ? "block" : "none";
+  });
+});
 </script>
 
 </body>

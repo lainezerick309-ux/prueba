@@ -12,7 +12,13 @@
 
   <iframe id="trailer" class="bg-video" src="" frameborder="0" allow="autoplay; fullscreen"></iframe>
 
-  <iframe id="iframe2" class="player" src="" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts"></iframe>
+  <iframe 
+  id="iframe2"
+  class="player"
+  src=""
+  frameborder="0"
+  allowfullscreen>
+</iframe>
 
   <div class="overlay">
     <h1 id="title"></h1>
@@ -177,6 +183,31 @@ else if (title === "LaLaLand:ciudad de sueños") {
   server2 = "";
 }
 
+else if (title === "Avatar: Aang, El último Maestro Aire") {
+
+  trailerURL = "https://www.youtube.com/embed/kQJnNIPVsdo?autoplay=1&mute=1&controls=0&loop=1&playlist=kQJnNIPVsdoSS";
+
+  sinopsis = "Jake Sully vive con su nueva familia en Pandora, pero una antigua amenaza regresa para terminar lo que empezó";
+
+  year = "2026";
+  genre = "Ciencia Ficción / Aventura";
+
+  server1 = "https://ok.ru/videoembed/14314920151585";
+  server2 = "";
+}
+
+else if (title === "Scream 7") {
+
+  trailerURL = "https://www.youtube.com/embed/WZXCpje7ZNo?autoplay=1&mute=1&controls=0&loop=1&playlist=WZXCpje7ZNo";
+
+  sinopsis = "Una nueva ola de asesinatos sacude la ciudad, obligando a un grupo de jóvenes a enfrentarse una vez más al misterioso Ghostface en un juego mortal de terror y supervivencia.";
+
+  year = "2026";
+  genre = "Terror / Slasher";
+
+  server1 = "https://drive.google.com/file/d/1kSSvFP0m_0anQlimqc345mPoQtSUtWIT/preview";
+  server2 = "";
+}
 
 
 document.getElementById("trailer").src = trailerURL;
