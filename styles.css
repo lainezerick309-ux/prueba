@@ -274,3 +274,56 @@ body {
   font-size: 12px;
   color: #888;
 }
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 10px 40px;
+}
+
+.logo-img {
+  width: 160px;
+  transition: 0.3s;
+}
+
+.logo-img:hover {
+  transform: scale(1.1);
+}
+
+.actor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.actor-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #111;
+  padding: 10px;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.actor-card:hover {
+  background: #1f1f1f;
+  transform: scale(1.03);
+}
+
+.actor-card img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.name {
+  margin: 0;
+  font-weight: bold;
+}
+
+.actor-card span {
+  font-size: 12px;
+  color: #aaa;
+}
